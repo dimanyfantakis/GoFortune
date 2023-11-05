@@ -36,14 +36,13 @@ Run the application
 gofortune
 ```
 
-Or Add `gofortune` to your `~/.bashrc` file.
-If you don't want to get a fortune on every new terminal session but rather once per login then you can add this `bash` script to your `~/.bashrc` file.
+Or add `gofortune` to your `~/.bashrc` file.
+
+If you don't want to get a fortune on every new terminal session but rather once per login then you can do the following.
+
+In the `~/.bashrc` file add the following.
 
 ```bash
-remove_flag_file() {
-    rm -f "$flag_file"
-}
-
 # Define the flag file path
 flag_file="/tmp/.firstrun_$USER"
 
@@ -55,7 +54,14 @@ if [ ! -f "$flag_file" ]; then
     # Create the flag file in /tmp
     touch "$flag_file"
 fi
+```
 
-# Set a trap to remove the flag file upon logout
-trap remove_flag_file EXIT
+In the `~/.bash_logout` file add the following.
+
+```bash
+flag_file="/tmp/.firstrun_$USER"
+
+if [ -f "$flag_file" ]; then
+    rm -f "$flag_file"
+fi
 ```
