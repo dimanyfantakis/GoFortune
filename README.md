@@ -2,6 +2,15 @@
 
 A [Fortune](https://en.wikipedia.org/wiki/Fortune_(Unix)) clone using Go!
 
+## Prerequisites
+
+- [Go](https://go.dev/doc/install)
+
+- fortune
+```bash
+sudo apt-get install fortune
+```
+
 ## Installation
 
 Compile the code into an executable.
